@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title%}Virtual-Try-On{% endblock title%}
+
+
+{% block body%}
+
+  <div class = "center" >
+    <div class="middle">
+      
+      
+      <img src= "{{ img.photo.url}}"  height="350" width="550" alt="">
+       
+     
+    </div>
+    <div class="button1">
+        <form action = "" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form }}
+          <input type="submit" class="btn btn-outline-primary" value = "Upload">
+          <button type="submit" class="btn btn-outline-primary" ><a href="/upload">Submit</a></button>
+    </div>
+    
+    
+    
+      
+      
+  </div>
+{% endblock body%}  
+</body>
+</html>
