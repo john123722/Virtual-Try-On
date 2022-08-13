@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from django.shortcuts import render
 from django import views
 from django.urls import is_valid_path
@@ -12,8 +13,14 @@ def index(request):
             form.save()
         
     form = ImageForm()
-    img = Image.objects.last()
-    return render(request,'index.html',{'img':img ,'form':form})
+    if Image.objects.count() >0 :
+        max_id = Image.objects.latest('id').id
+        img = Image.objects.filter(id = max_id)
+        return render(request,'index.html',{'img':img ,'form':form})
+        
+    else:
+        img = Image.objects.all()
+        return render(request,'index.html',{'img':img ,'form':form})
 
 
 

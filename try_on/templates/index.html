@@ -8,9 +8,9 @@
   <div class = "center" >
     <div class="middle">
       
-      
-      <img src= "{{ img.photo.url}}"  height="350" width="550" alt="">
-       
+      {% for x in img %}
+      <img src= "{{ x.photo.url}}"  height="350" width="550" alt="">
+       {% endfor %}
      
     </div>
     <div class="button1">
